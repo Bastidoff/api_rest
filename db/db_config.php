@@ -17,12 +17,10 @@ class DBConfig{
             $connection = new PDO($dsn, $this->user, $this->password);
             //configuración de error
             $connection->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+            return $connection;//retornamos la conexión
             echo "Conexión exitosa";
         }catch(PDOException $exception){
             echo "Conexión fallida con la base de datos ".$exception->getMessage();
         }    
     }
 }
-
-$dbConnection = new DBConfig();
-$dbConnection->connect();
